@@ -1,5 +1,6 @@
-<!-- <h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p> -->
-
 <app-top [title]="'Medals per Country'"></app-top>
+
+<div class="boxesContainer">
+    <app-box [boxText]="'Number of JOs'" [boxNumber]="numberOfJo"></app-box>
+    <app-box [boxText]="'Number of countires'" [boxNumber]="numberOfCountries"></app-box>
+</div>
