@@ -1,11 +1,15 @@
-header {
-    text-align: center;
+// header {
+//     text-align: center;
+//     background-color: #2A828E;
+//     margin-bottom: 3rem;
+//     padding: 10px;
+// }
+.navbar{
     background-color: #2A828E;
-    margin-bottom: 3rem;
-    padding: 10px;
+    margin-bottom: 2rem;
 }
 
-a {
+.dropdown-toggle {
     margin: 0 10px;
     color: #f1f1f1;
     text-decoration: none;
@@ -14,7 +18,22 @@ a {
     }
 }
 
-.active {
-    color: #eee;
+.dropdown-toggle.show {
+    color: #d3d3d3;
     text-decoration: underline;
 }
+
+.dropdown-item {
+    color: #2A828E;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.dropdown-item.active {
+    color: #174C54;
+    text-decoration: underline;
+    background-color: transparent;
+}
+
