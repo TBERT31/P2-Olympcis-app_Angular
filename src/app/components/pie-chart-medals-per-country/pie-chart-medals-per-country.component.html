@@ -1,13 +1,16 @@
 <div class="chartContainer">
     <ngx-charts-pie-chart
-    [view]="view"
+    [view]="[700, 400]"
     [results]="results"
     [gradient]="gradient"
     [legend]="showLegend"
     [labels]="showLabels"
     [doughnut]="isDoughnut"
     [legendPosition]="legendPosition"
+    [trimLabels]="true"
+    [maxLabelLength]="15"
+    [legendTitle]="'Participating countries'"
+    [tooltipText]="tooltipText">
     >
   </ngx-charts-pie-chart>
-
 </div>

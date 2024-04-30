@@ -10,12 +10,15 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
 
   @Input() results: PieChartDataNgxCharts[] | null = [];
 
-  view: [number, number] = [700, 400];
-  gradient: boolean = true;
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  isDoughnut: boolean = false;
-  legendPosition: any = 'below'; 
+  // Ici les attributs du chart sur lesquels potentiellement on veut faire des modifs, 
+  // le reste sera noté en dur. 
+  public view: [number, number] = [700, 400];
+  public gradient: boolean = true;
+  public showLegend: boolean = true;
+  public showLabels: boolean = true;
+  public isDoughnut: boolean = false;
+  public legendPosition: any = 'below'; 
+  public tooltipText = this.formatTooltip.bind(this);
 
   constructor(
     
@@ -23,6 +26,10 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  formatTooltip(item: any): any {
+    return `<strong>${item.data.name}</strong><br><i class="fa-solid fa-medal"></i> ${item.value}`;
   }
 
 }
