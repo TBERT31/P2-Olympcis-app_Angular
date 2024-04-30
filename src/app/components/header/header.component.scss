@@ -1,9 +1,9 @@
-// header {
-//     text-align: center;
-//     background-color: #2A828E;
-//     margin-bottom: 3rem;
-//     padding: 10px;
+// header{
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
 // }
+
 .navbar{
     background-color: #2A828E;
     margin-bottom: 2rem;
@@ -32,7 +32,7 @@
 }
 
 .dropdown-item.active {
-    color: #174C54;
+    color: #1F6A73;
     text-decoration: underline;
     background-color: transparent;
 }
