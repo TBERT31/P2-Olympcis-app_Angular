@@ -1,0 +1,30 @@
+.boxContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: #2A828E solid 3px;
+    padding: 0.6em 0.8em;
+    border-radius: 10px;
+    color: #6F6F6F;
+    margin: 20px;
+    font-weight: 100;
+}
+
+.boxText{
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.boxNumber{
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: 800;
+}

@@ -1,0 +1,27 @@
+.container{
+    margin: 10px;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titlePage{
+    background-color: #2A828E;
+    font-size: 2rem;
+    padding: 0.3em;
+    border-radius: 10px;
+    color: #f1f1f1;
+    margin: auto;
+    font-weight: 100;
+}
+
+.boxesContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    margin: auto;
+}
