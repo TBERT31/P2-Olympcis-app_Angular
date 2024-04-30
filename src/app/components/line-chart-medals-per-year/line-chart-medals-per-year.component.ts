@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./line-chart-medals-per-year.component.scss']
 })
 export class LineChartMedalsPerYearComponent implements OnInit {
+  
 
   constructor() { }
 

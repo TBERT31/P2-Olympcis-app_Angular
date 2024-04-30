@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
+import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   public numberOfJo: number = 0;
   public numberOfCountries: number = 0;
+  public pieChartData: PieChartDataNgxCharts[] | null = null;
 
   constructor(
     private olympicService: OlympicService
@@ -26,7 +28,7 @@ export class DashboardComponent implements OnInit {
   
     this.olympics$.subscribe((data) => {
       if(data){
-        /* Cas où on  supporse ici qu'il n'y a pas d'erreurs dans les données, 
+        /* Cas où l'on supporse qu'il n'y a pas d'erreurs dans les données, 
         c'est à dire, pas deux fois le même pays dans le tableau. */
         //this.numberOfCountries = data.length; 
 
@@ -41,6 +43,20 @@ export class DashboardComponent implements OnInit {
 
         // Mise à jour du nombre d'années uniques de JO
         this.numberOfJo = years.size;
+
+        this.pieChartData  = data.map(olympic => {
+
+          // On additionne le nombre de médails par pays au court de chaque participation avec un accumulateur et la méthode reduce
+          const totalMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
+
+          // On formatte au format attendu par Ngx-Charts
+          return {
+            name: olympic.country,
+            value: totalMedals,
+          };
+        });
+  
+        console.log(this.pieChartData);
       }
     })
   

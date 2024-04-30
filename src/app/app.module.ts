@@ -15,6 +15,7 @@ import { Dashboard2Component } from './pages/dashboard2/dashboard2.component';
 import { Dashboard3Component } from './pages/dashboard3/dashboard3.component';
 import { Detail2Component } from './pages/detail2/detail2.component';
 import { Detail3Component } from './pages/detail3/detail3.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -23,7 +24,7 @@ import { Detail3Component } from './pages/detail3/detail3.component';
     LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
     DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
