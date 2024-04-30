@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-top',
-  templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  selector: 'app-title',
+  templateUrl: './title.component.html',
+  styleUrls: ['./title.component.scss']
 })
-export class TopComponent implements OnInit {
+export class TitleComponent implements OnInit {
   @Input() title: string = ''; 
 
   constructor() { }

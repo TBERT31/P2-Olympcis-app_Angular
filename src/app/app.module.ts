@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DetailComponent } from './pages/detail/detail.component';
-import { TopComponent } from './components/top/top.component';
+import { TitleComponent } from './components/title/title.component';
 import { BoxComponent } from './components/box/box.component';
 import { LineChartMedalsPerYearComponent } from './components/line-chart-medals-per-year/line-chart-medals-per-year.component';
 import { PieChartMedalsPerCountryComponent } from './components/pie-chart-medals-per-country/pie-chart-medals-per-country.component';
@@ -20,7 +20,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
-  declarations: [ AppComponent, NotFoundComponent, DetailComponent, TopComponent, BoxComponent, 
+  declarations: [ AppComponent, NotFoundComponent, DetailComponent, TitleComponent, BoxComponent, 
     LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
     DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component
   ],
