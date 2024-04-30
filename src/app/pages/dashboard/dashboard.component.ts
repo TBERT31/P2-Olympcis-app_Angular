@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
 
           // On formatte au format attendu par Ngx-Charts
           return {
+            id: olympic.id,
             name: olympic.country,
             value: totalMedals,
           };
