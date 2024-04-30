@@ -11,7 +11,7 @@
     align-items: center;
     background-color: transparent;
     border: #2A828E solid 3px;
-    padding: 0.6em 0.8em;
+    padding: 0.2em 0.4em;
     border-radius: 10px;
     color: #6F6F6F;
     margin: 20px;
@@ -21,10 +21,12 @@
 .boxText{
     font-size: 1.2rem;
     font-weight: 300;
+    margin: 0.3em 0.2em 0.2em;
 }
 
 .boxNumber{
     color: #000;
     font-size: 1.2rem;
     font-weight: 800;
+    margin: 0 0.1em 0.1em;
 }
