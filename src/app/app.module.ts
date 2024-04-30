@@ -10,10 +10,11 @@ import { TopComponent } from './components/top/top.component';
 import { BoxComponent } from './components/box/box.component';
 import { LineChartMedalsPerYearComponent } from './components/line-chart-medals-per-year/line-chart-medals-per-year.component';
 import { PieChartMedalsPerCountryComponent } from './components/pie-chart-medals-per-country/pie-chart-medals-per-country.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailComponent, TopComponent, BoxComponent, LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent, DetailComponent, TopComponent, BoxComponent, LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
