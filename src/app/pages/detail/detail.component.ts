@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { LineChartDataNgxCharts } from 'src/app/core/models/LineChartDataNgxCharts.model';
 import { Olympic } from 'src/app/core/models/Olympic.model';
@@ -18,11 +19,14 @@ export class DetailComponent implements OnInit {
   public numberOfAthletes: number = 0;
   public lineChartData: LineChartDataNgxCharts[] | null = null;  // Use camelCase for variable name
 
-  constructor(private olympicService: OlympicService) {}
+  constructor(
+    private olympicService: OlympicService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.olympicService.loadInitialData().subscribe(() => {
-      this.olympic$ = this.olympicService.getOlympicById(1);
+      this.olympic$ = this.olympicService.getOlympicById(+this.route.snapshot.params['idOlympic']);
       this.olympic$.subscribe(olympic => {
         if (olympic) {
           this.nameOfCountry = olympic.country;
