@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Olympic } from 'src/app/core/models/Olympic.model';
+import { Router } from '@angular/router';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 
 @Component({
@@ -11,10 +11,16 @@ export class TableMedalsPerCountryComponent implements OnInit {
 
   @Input() results: PieChartDataNgxCharts[] | null = null;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
   }
 
+  navigateToDetail(id: number): void {
+    this.router.navigate(['/detail', id]);  // Use Router to navigate
+  }
+  
 }

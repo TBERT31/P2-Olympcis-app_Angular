@@ -17,7 +17,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let result of results; let i = index"
-            >
+        (click)="navigateToDetail(result.id)"
+        >
             <th scope="row"
             [ngStyle]="i % 2 === 0 ? {'background-color': '#329DA8', 'color': '#f1f1f1'} : {'background-color': '#2A828E', 'color': '#f1f1f1'}"
             >

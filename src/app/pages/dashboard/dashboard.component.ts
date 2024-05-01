@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
@@ -17,7 +18,8 @@ export class DashboardComponent implements OnInit {
   public pieChartData: PieChartDataNgxCharts[] | null = null;
 
   constructor(
-    private olympicService: OlympicService
+    private olympicService: OlympicService, 
+    private router: Router
   ) {}
 
   ngOnInit(): void {
