@@ -1,4 +1,4 @@
-<app-title [title]="nameOfContry"></app-title>
+<app-title [title]="nameOfCountry"></app-title>
 
 <div class="boxesContainer">
     <app-box [boxText]="'Number of entries'" [boxNumber]="numberOfEntries"></app-box>
@@ -6,6 +6,6 @@
     <app-box [boxText]="'Total number of athletes'" [boxNumber]="numberOfAthletes"></app-box>
 </div>
 
-<app-pie-chart-medals-per-country [results]="pieChartData"></app-pie-chart-medals-per-country>
+<app-line-chart-medals-per-year [results]="lineChartData"></app-line-chart-medals-per-year>
 
 <app-table-medals-per-year></app-table-medals-per-year>

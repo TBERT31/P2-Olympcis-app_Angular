@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { LineChartDataNgxCharts } from 'src/app/core/models/LineChartDataNgxCharts.model';
 import { Olympic } from 'src/app/core/models/Olympic.model';
-import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
-
 
 @Component({
   selector: 'app-detail',
@@ -13,29 +12,34 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 export class DetailComponent implements OnInit {
   public olympic$: Observable<Olympic | undefined> = of(undefined);
 
-  public nameOfContry: string = '';
+  public nameOfCountry: string = '';  // Correct typo here as well for consistency
   public numberOfEntries: number = 0;
   public numberOfMedals: number = 0;
   public numberOfAthletes: number = 0;
-  public pieChartData: PieChartDataNgxCharts[] | null = null;
+  public lineChartData: LineChartDataNgxCharts[] | null = null;  // Use camelCase for variable name
 
-  constructor(
-    private olympicService: OlympicService
-  ) {}
+  constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
     this.olympicService.loadInitialData().subscribe(() => {
       this.olympic$ = this.olympicService.getOlympicById(1);
       this.olympic$.subscribe(olympic => {
-        console.log(olympic);
         if (olympic) {
-          // On remplie les boxes du haut de page (sous le titre)
-          this.nameOfContry = olympic.country;
-          this.numberOfEntries = olympic.participations.length;  // Nombre de participation du pays concerné
-          this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);  // Somme des médailles gagné par le pays
-          this.numberOfAthletes = olympic.participations.reduce((acc, curr) => acc + curr.athleteCount, 0);  // Somme des athletes ayant participé toutes années confondues
-        
-          
+          this.nameOfCountry = olympic.country;
+          this.numberOfEntries = olympic.participations.length;
+          this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
+          this.numberOfAthletes = olympic.participations.reduce((acc, curr) => acc + curr.athleteCount, 0);
+
+          this.lineChartData = [{
+            id: olympic.id,
+            name: olympic.country,
+            series: olympic.participations.map(part => ({
+              name: part.year,
+              value: part.medalsCount
+            }))
+          }];
+
+          console.log(this.lineChartData);
         }
       });
     });
