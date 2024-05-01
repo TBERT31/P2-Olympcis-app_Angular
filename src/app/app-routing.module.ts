@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 const routes: Routes = [
   {
@@ -9,7 +10,11 @@ const routes: Routes = [
     component: DashboardComponent,
   },
   {
-    path: '**', // wildcard
+    path: 'detail',
+    component: DetailComponent,
+  },
+  {
+    path: '**', // 404 Error
     component: NotFoundComponent,
   },
 ];

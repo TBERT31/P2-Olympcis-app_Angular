@@ -17,13 +17,14 @@ import { Detail2Component } from './pages/detail2/detail2.component';
 import { Detail3Component } from './pages/detail3/detail3.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TableMedalsPerCountryComponent } from './components/table-medals-per-country/table-medals-per-country.component';
+import { TableMedalsPerYearComponent } from './components/table-medals-per-year/table-medals-per-year.component';
 
 
 
 @NgModule({
   declarations: [ AppComponent, NotFoundComponent, DetailComponent, TitleComponent, BoxComponent, 
     LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
-    DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component, TableMedalsPerCountryComponent
+    DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component, TableMedalsPerCountryComponent, TableMedalsPerYearComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
   providers: [],
