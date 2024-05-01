@@ -7,22 +7,23 @@
             </th>
             <th 
             scope="col" [ngStyle]="{'background-color': '#1F6A73', 'color': '#f1f1f1'}">
-                Athletes 🏃
+                Medals 🎖️
             </th>
             <th 
             scope="col" [ngStyle]="{'background-color': '#1F6A73', 'color': '#f1f1f1'}">
-                Medals 🎖️
+                Athletes 🏃
             </th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let result of results; let i = index"
-            >
-            <th scope="row"
+        (click)="navigateToDashboard()"
+        >
+            <td
             [ngStyle]="i % 2 === 0 ? {'background-color': '#329DA8', 'color': '#f1f1f1'} : {'background-color': '#2A828E', 'color': '#f1f1f1'}"
             >
                 {{ result.name }}
-            </th>
+            </td>
             <td
             [ngStyle]="i % 2 === 0 ? {'background-color': '#329DA8', 'color': '#f1f1f1'} : {'background-color': '#2A828E', 'color': '#f1f1f1'}"
             >

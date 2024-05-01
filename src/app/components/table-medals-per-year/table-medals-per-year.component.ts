@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { LineChartSeriesData } from 'src/app/core/models/LineChartDataNgxCharts.model';
 
 @Component({
@@ -10,10 +11,15 @@ export class TableMedalsPerYearComponent implements OnInit {
 
   @Input() results: LineChartSeriesData[] | null = null;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
 
   }
 
+  navigateToDashboard(): void {
+    this.router.navigate(['']);  // Use Router to navigate
+  }
 }
