@@ -7,11 +7,16 @@ import { DetailComponent } from './pages/detail/detail.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: '/dashboard/1',
+    pathMatch: 'full' 
+  },
+  {
+    path: 'dashboard/:idChartTool', 
     component: DashboardComponent,
   },
   {
-    path: 'detail/:idOlympic',
-    component: DetailComponent,
+    path: 'detail/:idChartTool/:idOlympic',
+    component: DetailComponent
   },
   {
     path: '**', // 404 Error

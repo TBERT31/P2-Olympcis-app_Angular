@@ -53,7 +53,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
-    this.router.navigate(['/detail', id]);  
+    this.router.navigate(['/detail', 1, id]);  
   }
 
 
