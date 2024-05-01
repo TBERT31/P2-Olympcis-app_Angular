@@ -20,7 +20,7 @@ export class TableMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
-    this.router.navigate(['/detail', id]);  // Use Router to navigate
+    this.router.navigate(['/detail', id]);  
   }
-  
+
 }

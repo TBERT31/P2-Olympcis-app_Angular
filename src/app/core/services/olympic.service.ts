@@ -48,4 +48,14 @@ export class OlympicService {
       map(olympics => olympics?.find(o => o.country.toLowerCase() === country.toLowerCase()))
     );
   }
+
+  // Renvoie l'id de l'Olympic en fonction du nom de pays
+  getOlympicIdByCountry(country: string): number | null {
+    const olympics = this.olympics$.getValue(); // Utilisation de getValue pour obtenir la valeur actuelle de BehaviorSubject
+    if (olympics) {
+      const olympic = olympics.find(o => o.country.toLowerCase() === country.toLowerCase());
+      return olympic ? olympic.id : null;
+    }
+    return null;
+  }
 }

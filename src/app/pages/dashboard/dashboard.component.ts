@@ -25,8 +25,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.olympicService.loadInitialData();
     this.olympics$ = this.olympicService.getOlympics();
-    
-    console.log(this.olympics$);
   
     this.olympics$.subscribe((data) => {
       if(data){
@@ -59,7 +57,6 @@ export class DashboardComponent implements OnInit {
           };
         });
   
-        console.log(this.pieChartData);
       }
     })
   
