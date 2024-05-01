@@ -30,7 +30,8 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "./node_modules/chartist/dist/index.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",
@@ -104,7 +105,8 @@
             "styles": [
               "src/styles.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+              "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "./node_modules/chartist/dist/index.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

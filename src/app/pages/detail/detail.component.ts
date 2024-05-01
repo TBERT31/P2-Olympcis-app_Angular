@@ -21,12 +21,12 @@ export class DetailComponent implements OnInit {
 
   constructor(
     private olympicService: OlympicService,
-    private route: ActivatedRoute
+    private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     this.olympicService.loadInitialData().subscribe(() => {
-      this.olympic$ = this.olympicService.getOlympicById(+this.route.snapshot.params['idOlympic']);
+      this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
       this.olympic$.subscribe(olympic => {
         if (olympic) {
           this.nameOfCountry = olympic.country;

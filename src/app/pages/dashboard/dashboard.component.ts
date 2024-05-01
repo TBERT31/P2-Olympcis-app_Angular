@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
@@ -19,7 +19,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private olympicService: OlympicService, 
-    private router: Router
+    private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
