@@ -14,7 +14,7 @@ export class LineChartMedalsPerYearComponent implements OnInit {
   // le reste sera noté en dur. 
   public view: [number, number] = [700, 400];
   public schemeType : any = 'linear';
-  public animations : boolean = false;
+  public animations : boolean = true;
   public legend : boolean = false;
   // public legendTitle : string = 'Years of participation';
   // public legendPosition : any = 'below';

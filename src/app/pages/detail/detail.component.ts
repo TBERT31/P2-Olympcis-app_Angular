@@ -35,7 +35,8 @@ export class DetailComponent implements OnInit {
             name: olympic.country,
             series: olympic.participations.map(part => ({
               name: part.year,
-              value: part.medalsCount
+              value: part.medalsCount,
+              athletes: part.athleteCount
             }))
           }];
 

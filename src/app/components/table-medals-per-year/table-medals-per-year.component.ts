@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LineChartSeriesData } from 'src/app/core/models/LineChartDataNgxCharts.model';
 
 @Component({
   selector: 'app-table-medals-per-year',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableMedalsPerYearComponent implements OnInit {
 
+  @Input() results: LineChartSeriesData[] | null = null;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

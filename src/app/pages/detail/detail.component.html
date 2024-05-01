@@ -8,4 +8,8 @@
 
 <app-line-chart-medals-per-year [results]="lineChartData"></app-line-chart-medals-per-year>
 
-<app-table-medals-per-year></app-table-medals-per-year>
+<app-table-medals-per-year 
+    *ngIf="lineChartData && lineChartData.length > 0" 
+    [results]="lineChartData[0].series"
+>
+</app-table-medals-per-year>

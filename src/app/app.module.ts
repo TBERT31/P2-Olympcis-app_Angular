@@ -1,6 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -24,9 +25,10 @@ import { TableMedalsPerYearComponent } from './components/table-medals-per-year/
 @NgModule({
   declarations: [ AppComponent, NotFoundComponent, DetailComponent, TitleComponent, BoxComponent, 
     LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
-    DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component, TableMedalsPerCountryComponent, TableMedalsPerYearComponent
+    DashboardComponent, Dashboard2Component, Dashboard3Component, Detail2Component, Detail3Component, 
+    TableMedalsPerCountryComponent, TableMedalsPerYearComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, HttpClientModule, NgxChartsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
