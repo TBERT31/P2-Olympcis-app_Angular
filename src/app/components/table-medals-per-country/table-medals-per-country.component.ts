@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
+import { DetailContextService } from 'src/app/core/services/detailContext.service';
 
 @Component({
   selector: 'app-table-medals-per-country',
@@ -12,7 +13,8 @@ export class TableMedalsPerCountryComponent implements OnInit {
   @Input() results: PieChartDataNgxCharts[] | null = null;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private detailContextService : DetailContextService
   ) { }
 
   ngOnInit(): void {
@@ -20,6 +22,7 @@ export class TableMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
+    this.detailContextService.setIdDetail(id);
     this.router.navigate(['/detail', id]);  
   }
 

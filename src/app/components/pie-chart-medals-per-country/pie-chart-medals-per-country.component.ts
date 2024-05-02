@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { DetailContextService } from 'src/app/core/services/detailContext.service';
 
 @Component({
   selector: 'app-pie-chart-medals-per-country',
@@ -28,7 +29,8 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
 
   constructor(
     private olympicService : OlympicService,
-    private router: Router
+    private router: Router,
+    private detailContextService : DetailContextService
   ) { }
 
   ngOnInit(): void {
@@ -92,8 +94,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
+    this.detailContextService.setIdDetail(id); // Je change l'id detail de context avant de renaviguer
     this.router.navigate(['/detail', id]);  
   }
-
-
 }

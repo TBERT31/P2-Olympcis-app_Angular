@@ -1,18 +1,17 @@
 <header>
-    <!-- <nav>
-        <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Dashboards</a>
-        <a routerLink="" routerLinkActive="active">Details</a>
-    </nav> -->
-
     <nav class="navbar navbar-expand d-flex justify-content-center">
           <div class="">
             <ul class="navbar-nav me-auto mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="#"  routerLink="dashboard" routerLinkActive="active"><i class="fa-solid fa-gauge"></i>&nbsp;Dashboard</a>
+                <a class="nav-link" routerLink="dashboard" routerLinkActive="active">
+                  <i class="fa-solid fa-gauge"></i>&nbsp;Dashboard
+                </a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="#"  routerLink="detail/1" routerLinkActive="active"><i class="fa-solid  fa-file-contract"></i>&nbsp;Detail</a>
+                <a class="nav-link" [routerLink]="['/detail', idDetail]" routerLinkActive="active">
+                  <i class="fa-solid  fa-file-contract"></i>&nbsp;Detail
+                </a>
               </li>
             </ul>
           </div>
