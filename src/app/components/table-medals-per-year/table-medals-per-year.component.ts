@@ -20,6 +20,6 @@ export class TableMedalsPerYearComponent implements OnInit {
   }
 
   navigateToDashboard(): void {
-    this.router.navigate(['dashboard']);  // Use Router to navigate
+    this.router.navigate(['dashboard']);  
   }
 }
