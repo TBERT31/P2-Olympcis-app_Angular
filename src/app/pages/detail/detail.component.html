@@ -6,7 +6,9 @@
     <app-box [boxText]="'Total number of athletes'" [boxNumber]="numberOfAthletes"></app-box>
 </div>
 
-<app-line-chart-medals-per-year [results]="lineChartData"></app-line-chart-medals-per-year>
+<app-line-chart-medals-per-year *ngIf="!loading && !error"  [results]="lineChartData"></app-line-chart-medals-per-year>
+<app-spinner *ngIf="loading"></app-spinner>
+<app-fetch-fail *ngIf="error"></app-fetch-fail>
 
 <app-table-medals-per-year 
     *ngIf="lineChartData && lineChartData.length > 0" 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
@@ -11,15 +10,20 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  // Observables qui permet de get les données du tableau et du chart
   public olympics$: Observable<Olympic[] | null> = of(null);
 
+  // Variables à afficher
   public numberOfJo: number = 0;
   public numberOfCountries: number = 0;
   public pieChartData: PieChartDataNgxCharts[] | null = null;
 
+  // Variables utiles pour gérer le chargement et les erreurs
+  public error: boolean = false;
+  public loading : boolean = true;
+
   constructor(
     private olympicService: OlympicService, 
-    private router: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -27,7 +31,9 @@ export class DashboardComponent implements OnInit {
     this.olympics$ = this.olympicService.getOlympics();
   
     this.olympics$.subscribe((data) => {
+      this.loading = false;
       if(data){
+        this.error = false;
         /* Cas où l'on supporse qu'il n'y a pas d'erreurs dans les données, 
         c'est à dire, pas deux fois le même pays dans le tableau. */
         //this.numberOfCountries = data.length; 
@@ -56,7 +62,8 @@ export class DashboardComponent implements OnInit {
             value: totalMedals,
           };
         });
-  
+      }else{
+        this.error = true;
       }
     })
   

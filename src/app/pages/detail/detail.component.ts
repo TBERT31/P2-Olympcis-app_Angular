@@ -13,11 +13,16 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 export class DetailComponent implements OnInit {
   public olympic$: Observable<Olympic | undefined> = of(undefined);
 
-  public nameOfCountry: string = '';  // Correct typo here as well for consistency
+  // Variables à afficher
+  public nameOfCountry: string = 'No country seems to correspond to this identifier';  // Correct typo here as well for consistency
   public numberOfEntries: number = 0;
   public numberOfMedals: number = 0;
   public numberOfAthletes: number = 0;
   public lineChartData: LineChartDataNgxCharts[] | null = null;  // Use camelCase for variable name
+
+  // Variables utiles pour gérer le chargement et les erreurs
+  public error: boolean = false;
+  public loading : boolean = true;
 
   constructor(
     private olympicService: OlympicService,
@@ -28,7 +33,9 @@ export class DetailComponent implements OnInit {
     this.olympicService.loadInitialData().subscribe(() => {
       this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
       this.olympic$.subscribe(olympic => {
+        this.loading = false;
         if (olympic) {
+          this.error = false;
           this.nameOfCountry = olympic.country;
           this.numberOfEntries = olympic.participations.length;
           this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
@@ -44,6 +51,8 @@ export class DetailComponent implements OnInit {
             }))
           }];
 
+        }else{
+          this.error = true;
         }
       });
     });

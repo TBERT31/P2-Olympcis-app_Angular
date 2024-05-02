@@ -5,6 +5,8 @@
     <app-box [boxText]="'Number of countires'" [boxNumber]="numberOfCountries"></app-box>
 </div>
 
-<app-pie-chart-medals-per-country [results]="pieChartData"></app-pie-chart-medals-per-country>
+<app-pie-chart-medals-per-country *ngIf="!loading && !error" [results]="pieChartData"></app-pie-chart-medals-per-country>
+<app-spinner *ngIf="loading"></app-spinner>
+<app-fetch-fail *ngIf="error"></app-fetch-fail>
 
-<app-table-medals-per-country [results]="pieChartData"></app-table-medals-per-country>
+<app-table-medals-per-country  *ngIf="!loading && !error" [results]="pieChartData"></app-table-medals-per-country>

@@ -15,11 +15,13 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TableMedalsPerCountryComponent } from './components/table-medals-per-country/table-medals-per-country.component';
 import { TableMedalsPerYearComponent } from './components/table-medals-per-year/table-medals-per-year.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { FetchFailComponent } from './components/fetch-fail/fetch-fail.component';
 
 @NgModule({
   declarations: [ AppComponent, NotFoundComponent, DetailComponent, TitleComponent, BoxComponent, 
     LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
-    DashboardComponent, TableMedalsPerCountryComponent, TableMedalsPerYearComponent,
+    DashboardComponent, TableMedalsPerCountryComponent, TableMedalsPerYearComponent, SpinnerComponent, FetchFailComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, 
     AppRoutingModule, HttpClientModule, NgxChartsModule,
