@@ -4,29 +4,15 @@
         <a routerLink="" routerLinkActive="active">Details</a>
     </nav> -->
 
-    <nav class="navbar navbar-expand-lg d-flex justify-content-center">
+    <nav class="navbar navbar-expand d-flex justify-content-center">
           <div class="">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-gauge"></i>&nbsp;<span>Dashboard</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLink="dashboard/1" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span>Dashboard : </span>ngx-charts</a></li>
-                  <li><a class="dropdown-item" routerLink="dashboard/2" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span>Dashboard : </span>angular-chartist</a></li>
-                  <li><a class="dropdown-item" routerLink="dashboard/3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><span>Dashboard : </span>ng2-charts</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#"  routerLink="dashboard" routerLinkActive="active"><i class="fa-solid fa-gauge"></i>&nbsp;Dashboard</a>
               </li>
 
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-file-contract"></i>&nbsp;<span>Details</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" routerLink="detail/1/1" routerLinkActive="active"><span>Details : </span>ngx-charts</a></li>
-                  <li><a class="dropdown-item" routerLink="detail/2/2" routerLinkActive="active"><span>Details : </span>angular-chartist</a></li>
-                  <li><a class="dropdown-item" routerLink="detail/3/3" routerLinkActive="active"><span>Details : </span>ng2-charts</a></li>
-                </ul>
+              <li class="nav-item">
+                <a class="nav-link" href="#"  routerLink="detail/1" routerLinkActive="active"><i class="fa-solid  fa-file-contract"></i>&nbsp;Detail</a>
               </li>
             </ul>
           </div>

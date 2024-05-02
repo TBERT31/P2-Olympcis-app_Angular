@@ -9,7 +9,7 @@
     margin-bottom: 2rem;
 }
 
-.dropdown-toggle {
+.nav-link {
     margin: 0 10px;
     color: #f1f1f1;
     text-decoration: none;
@@ -18,9 +18,8 @@
     }
 }
 
-.dropdown-toggle.show {
+.nav-link.active {
     color: #d3d3d3;
-    text-decoration: underline;
 }
 
 .dropdown-item {

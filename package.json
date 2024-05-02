@@ -25,11 +25,10 @@
     "@types/d3-selection": "^3.0.10",
     "@types/d3-shape": "^3.1.6",
     "bootstrap": "^5.3.3",
-    "chartist": "^1.2.0",
+    "chart.js": "^4.4.2",
     "d3": "^7.9.0",
     "jquery": "^3.7.1",
-    "ng-chartist": "^6.8.0",
-    "ng2-charts": "^0.0.0",
+    "ng2-charts": "^6.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
