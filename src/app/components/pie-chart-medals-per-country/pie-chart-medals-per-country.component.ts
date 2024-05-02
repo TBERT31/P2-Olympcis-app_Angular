@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -12,7 +12,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
 
   @Input() results: PieChartDataNgxCharts[] | null = [];
   @ViewChild('chartContainer') chartContainer!: ElementRef;
-  
+
   public view: [number, number] = [700, 400];
   private resizeObserver!: ResizeObserver;
 
