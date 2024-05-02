@@ -1,5 +1,13 @@
 .container{
     margin: 10px;
+
+    @media screen and (max-width: 500px) {
+        margin: 8px;
+    }
+
+    @media screen and (max-width: 300px) {
+        margin: 5px;
+    }
 }
 
 .titleContainer{
@@ -16,5 +24,13 @@
     color: #f1f1f1;
     margin: auto;
     font-weight: 100;
+
+    @media screen and (max-width: 500px) {
+        font-size: 1.5rem;
+    }
+
+    @media screen and (max-width: 300px) {
+        font-size: 1.2rem;
+    }
 }
 

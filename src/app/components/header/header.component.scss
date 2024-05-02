@@ -16,23 +16,19 @@
     &:hover {
         text-decoration: underline;
     }
-}
+    &.active{
+        color: #d3d3d3;
+    }
 
-.nav-link.active {
-    color: #d3d3d3;
-}
+    @media screen and (max-width: 500px) {
+        font-size: 0.9rem;
+        margin: 0 8px;
+    }
 
-.dropdown-item {
-    color: #2A828E;
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
+    @media screen and (max-width: 300px) {
+        font-size: 0.8rem;
+        margin: 0 7px;
     }
 }
 
-.dropdown-item.active {
-    color: #1F6A73;
-    text-decoration: underline;
-    background-color: transparent;
-}
 

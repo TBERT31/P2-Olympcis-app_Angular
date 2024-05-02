@@ -2,6 +2,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    
 }
 
 .boxContent{
@@ -16,12 +18,28 @@
     color: #6F6F6F;
     margin: 20px;
     font-weight: 100;
+
+    @media screen and (max-width: 500px) {
+        margin: 10px;
+    }
+
+    @media screen and (max-width: 300px) {
+        margin: 5px;
+    }
 }
 
 .boxText{
     font-size: 1.2rem;
     font-weight: 300;
     margin: 0.3em 0.2em 0.2em;
+
+    @media screen and (max-width: 500px) {
+        font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 300px) {
+        font-size: 0.8rem;
+    }
 }
 
 .boxNumber{
@@ -29,4 +47,12 @@
     font-size: 1.2rem;
     font-weight: 800;
     margin: 0 0.1em 0.1em;
+
+    @media screen and (max-width: 500px) {
+        font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 300px) {
+        font-size: 0.8rem;
+    }
 }

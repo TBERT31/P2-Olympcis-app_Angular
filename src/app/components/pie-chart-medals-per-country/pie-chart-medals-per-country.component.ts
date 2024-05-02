@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -11,10 +11,14 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 export class PieChartMedalsPerCountryComponent implements OnInit {
 
   @Input() results: PieChartDataNgxCharts[] | null = [];
+  @ViewChild('chartContainer') chartContainer!: ElementRef;
+  
+  public view: [number, number] = [700, 400];
+  private resizeObserver!: ResizeObserver;
 
   // Ici les attributs du chart sur lesquels potentiellement on veut faire des modifs, 
   // le reste sera noté en dur. 
-  public view: [number, number] = [700, 400];
+  // public view: [number, number] = [700, 350];
   public gradient: boolean = true;
   public showLegend: boolean = true;
   public showLabels: boolean = true;
@@ -31,8 +35,43 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
 
   }
 
+  ngAfterViewInit(): void {
+    this.setupResizeObserver();
+  }
+
+  setupResizeObserver() {
+    this.resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        const { width } = entry.contentRect;
+        if (width > 700) {
+          this.view = [700, 350];
+        } else if (width > 500) {
+          this.view = [500, 250];
+        } else if (width > 300) {
+          this.view = [300, 150];
+        } else {
+          this.view = [200, 100];
+        }
+      }
+    });
+
+    if (this.chartContainer.nativeElement) {
+      this.resizeObserver.observe(this.chartContainer.nativeElement);
+    }
+  }
+
+  ngOnDestroy(): void {
+    if (this.resizeObserver && this.chartContainer.nativeElement) {
+      this.resizeObserver.unobserve(this.chartContainer.nativeElement);
+    }
+  }
+
   formatTooltip(item: any): any {
-    return `<strong>${item.data.name}</strong><br><i class="fa-solid fa-medal"></i> ${item.value}`;
+    return `
+      <strong>${item.data.name}</strong>
+      <br>
+      <i class="fa-solid fa-medal"></i> ${item.value}
+    `;
   }
 
   onClick(event: any): void {

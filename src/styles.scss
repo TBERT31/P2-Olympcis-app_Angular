@@ -11,3 +11,62 @@ body {
   font-family: roboto, sans-serif;
   color: #333;
 }
+
+
+table{
+  @media screen and (max-width: 500px) {
+    font-size: 0.8em;
+  }
+
+  @media screen and (max-width: 300px) {
+    font-size: 0.6em;
+  }
+}
+
+.boxesContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
+
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.horizontal-legend{
+  overflow-x: auto!important;
+  scrollbar-width: thin;
+}
+
+.legend-title-text, .legend-label-text{
+
+  @media screen and (max-width: 500px) {
+    font-size: 0.8rem!important;
+  }
+
+  @media screen and (max-width: 300px) {
+    font-size: 0.7rem!important;
+  }
+}
+
+.legend-label{
+  @media screen and (max-width: 500px) {
+      margin: 0;
+  }
+
+  &-color{
+
+    @media screen and (max-width: 500px) {
+      width: 10px!important;
+      height: 10px!important;
+    }
+
+    @media screen and (max-width: 300px) {
+      width: 5px!important;
+      height: 5px!important;
+    }
+  }
+}
+
