@@ -27,13 +27,14 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.olympicService.loadInitialData();
+    this.olympicService.loadInitialData();  // Pas vraiment nécessaire car déjà initilisé dans app-component.ts, cependant si le fichier a été mis à jour cela permet d'avoir la nouvelle version.
     this.olympics$ = this.olympicService.getOlympics();
   
     this.olympics$.subscribe((data) => {
-      this.loading = false;
+      this.loading = false; // On indique que le chargement est fini
       if(data){
-        this.error = false;
+        this.error = false; // On indique qu'il n'y a pas eu d'erreur lors du fetch des données
+
         /* Cas où l'on supporse qu'il n'y a pas d'erreurs dans les données, 
         c'est à dire, pas deux fois le même pays dans le tableau. */
         //this.numberOfCountries = data.length; 
@@ -63,7 +64,7 @@ export class DashboardComponent implements OnInit {
           };
         });
       }else{
-        this.error = true;
+        this.error = true; // On indique qu'il y a eu une erreur lors du fetch des données
       }
     })
   

@@ -33,14 +33,17 @@ export class DetailComponent implements OnInit {
     this.olympicService.loadInitialData().subscribe(() => {
       this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
       this.olympic$.subscribe(olympic => {
-        this.loading = false;
+        this.loading = false; // On indique que le chargement est fini
         if (olympic) {
-          this.error = false;
+          this.error = false; // On indique qu'il n'y a pas eu d'erreur lors du fetch des données
+
+          // On met à jour les affichages dynamiques
           this.nameOfCountry = olympic.country;
           this.numberOfEntries = olympic.participations.length;
           this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
           this.numberOfAthletes = olympic.participations.reduce((acc, curr) => acc + curr.athleteCount, 0);
 
+          // On formatte la données obtenu de l'observable afin de pouvoir les exploiter dans le line chart de ngx-charts
           this.lineChartData = [{
             id: olympic.id,
             name: olympic.country,
@@ -52,7 +55,7 @@ export class DetailComponent implements OnInit {
           }];
 
         }else{
-          this.error = true;
+          this.error = true;  // On indique qu'il y a eu une erreur lors du fetch des données
         }
       });
     });

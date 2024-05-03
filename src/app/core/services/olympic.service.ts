@@ -30,7 +30,7 @@ export class OlympicService {
   }
 
   // Renvoie un Observable contenant tous les Olympics de la liste
-  getOlympics() {
+  getOlympics(): Observable<Olympic[] | null> {
     return this.olympics$.asObservable();
   }
 
