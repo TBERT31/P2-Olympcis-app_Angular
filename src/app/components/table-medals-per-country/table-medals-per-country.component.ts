@@ -22,7 +22,7 @@ export class TableMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
-    this.detailContextService.setIdDetail(id);
+    this.detailContextService.setIdDetail(id); // Je change l'id detail de context avant de naviguer vers la page detail
     this.router.navigate(['/detail', id]);  
   }
 

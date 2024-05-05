@@ -94,7 +94,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
   }
 
   navigateToDetail(id: number): void {
-    this.detailContextService.setIdDetail(id); // Je change l'id detail de context avant de renaviguer
+    this.detailContextService.setIdDetail(id); // Je change l'id detail de context avant de naviguer vers la page detail
     this.router.navigate(['/detail', id]);  
   }
 }
