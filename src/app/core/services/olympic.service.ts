@@ -4,24 +4,24 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 import { Olympic } from '../models/Olympic.model';
 
+// SERVICE PRINCIPAL DE L'APPLICATION
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // Cette configuration assure que le service est un singleton
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<Olympic[] | null>(null);
+  private olympics$ = new BehaviorSubject<Olympic[] | null>(null);  // BehaviorSubject permet de maintenir et fournir une "valeur actuelle" aux services abonnées.
 
   constructor(private http: HttpClient) {}
 
+  // On fetch avec la méthode get sur ./assets/mock/olympic.json
   loadInitialData() {
     return this.http.get<Olympic[]>(this.olympicUrl).pipe(
       tap((value) => this.olympics$.next(value)),
       catchError((error, caught) => {
 
-        // TODO: improve error handling
         console.error(error);
 
-        // can be useful to end loading state and let the user know something went wrong
         this.olympics$.next(null);
 
         return caught;
