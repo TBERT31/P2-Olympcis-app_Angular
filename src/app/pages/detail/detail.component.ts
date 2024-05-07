@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { LineChartDataNgxCharts } from 'src/app/core/models/LineChartDataNgxCharts.model';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -10,8 +10,9 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
-export class DetailComponent implements OnInit {
+export class DetailComponent implements OnInit, OnDestroy {
   public olympic$: Observable<Olympic | undefined> = of(undefined);
+  private subscription: Subscription = new Subscription();
 
   // Variables à afficher
   public nameOfCountry: string = 'No country seems to correspond to this identifier';  // Correct typo here as well for consistency
@@ -30,34 +31,38 @@ export class DetailComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.olympicService.loadInitialData().subscribe(() => {
-      this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
-      this.olympic$.subscribe(olympic => {
-        this.loading = false; // On indique que le chargement est fini
-        if (olympic) {
-          this.error = false; // On indique qu'il n'y a pas eu d'erreur lors du fetch des données
+    this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
+    this.subscription = this.olympic$.subscribe(olympic => {
+      this.loading = false; // On indique que le chargement est fini
+      if (olympic) {
+        this.error = false; // On indique qu'il n'y a pas eu d'erreur lors du fetch des données
 
-          // On met à jour les affichages dynamiques
-          this.nameOfCountry = olympic.country;
-          this.numberOfEntries = olympic.participations.length;
-          this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
-          this.numberOfAthletes = olympic.participations.reduce((acc, curr) => acc + curr.athleteCount, 0);
+        // On met à jour les affichages dynamiques
+        this.nameOfCountry = olympic.country;
+        this.numberOfEntries = olympic.participations.length;
+        this.numberOfMedals = olympic.participations.reduce((acc, curr) => acc + curr.medalsCount, 0);
+        this.numberOfAthletes = olympic.participations.reduce((acc, curr) => acc + curr.athleteCount, 0);
 
-          // On formatte la données obtenu de l'observable afin de pouvoir les exploiter dans le line chart de ngx-charts
-          this.lineChartData = [{
-            id: olympic.id,
-            name: olympic.country,
-            series: olympic.participations.map(part => ({
-              name: part.year,
-              value: part.medalsCount,
-              athletes: part.athleteCount
-            }))
-          }];
+        // On formatte la données obtenu de l'observable afin de pouvoir les exploiter dans le line chart de ngx-charts
+        this.lineChartData = [{
+          id: olympic.id,
+          name: olympic.country,
+          series: olympic.participations.map(part => ({
+            name: part.year,
+            value: part.medalsCount,
+            athletes: part.athleteCount
+          }))
+        }];
 
-        }else{
-          this.error = true;  // On indique qu'il y a eu une erreur lors du fetch des données
-        }
-      });
+      }else{
+        this.error = true;  // On indique qu'il y a eu une erreur lors du fetch des données
+      }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

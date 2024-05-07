@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, of, Subscription } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -9,9 +9,10 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   // Observables qui permet de get les données du tableau et du chart
   public olympics$: Observable<Olympic[] | null> = of(null);
+  private subscription: Subscription = new Subscription();
 
   // Variables à afficher
   public numberOfJo: number = 0;
@@ -26,11 +27,10 @@ export class DashboardComponent implements OnInit {
     private olympicService: OlympicService, 
   ) {}
 
-  ngOnInit(): void {
-    this.olympicService.loadInitialData();  // Pas vraiment nécessaire car déjà initilisé dans app-component.ts, cependant si le fichier a été mis à jour cela permet d'avoir la nouvelle version.
+  ngOnInit(): void {  
     this.olympics$ = this.olympicService.getOlympics();
   
-    this.olympics$.subscribe((data) => {
+    this.subscription = this.olympics$.subscribe((data) => {
       this.loading = false; // On indique que le chargement est fini
       if(data){
         this.error = false; // On indique qu'il n'y a pas eu d'erreur lors du fetch des données
@@ -70,4 +70,9 @@ export class DashboardComponent implements OnInit {
   
   }
 
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }
