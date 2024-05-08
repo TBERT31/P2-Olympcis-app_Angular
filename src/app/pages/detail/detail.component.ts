@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, of, Subscription } from 'rxjs';
 import { LineChartDataNgxCharts } from 'src/app/core/models/LineChartDataNgxCharts.model';
 import { Olympic } from 'src/app/core/models/Olympic.model';
@@ -27,11 +27,12 @@ export class DetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private olympicService: OlympicService,
-    private router: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.olympic$ = this.olympicService.getOlympicById(+this.router.snapshot.params['idOlympic']);
+    this.olympic$ = this.olympicService.getOlympicById(+this.activatedRoute.snapshot.params['idOlympic']);
     this.subscription = this.olympic$.subscribe(olympic => {
       this.loading = false; // On indique que le chargement est fini
       if (olympic) {
@@ -65,4 +66,5 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
 }
