@@ -1,12 +1,10 @@
-<app-title [title]="'Medals per Country'"></app-title>
-
-<div class="boxesContainer">
-    <app-box [boxText]="'Number of JOs'" [boxNumber]="numberOfJo"></app-box>
-    <app-box [boxText]="'Number of countires'" [boxNumber]="numberOfCountries"></app-box>
-</div>
+<app-heading 
+    *ngIf="!loading && !error"
+    [title]="'Medals per Country'"
+    [boxes]="boxes">
+</app-heading>
 
 <app-pie-chart-medals-per-country *ngIf="!loading && !error" [results]="pieChartData"></app-pie-chart-medals-per-country>
 <app-spinner *ngIf="loading"></app-spinner>
-<app-fetch-fail *ngIf="error"></app-fetch-fail>
+<app-not-found *ngIf="error"></app-not-found>
 
-<app-table-medals-per-country  *ngIf="!loading && !error" [results]="pieChartData"></app-table-medals-per-country>

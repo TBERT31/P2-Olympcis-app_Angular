@@ -3,6 +3,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
+import { Box } from 'src/app/core/models/box.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +18,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   // Variables à afficher
   public numberOfJo: number = 0;
   public numberOfCountries: number = 0;
+  public boxes: Box[] = [];
   public pieChartData: PieChartDataNgxCharts[] | null = null;
 
   // Variables utiles pour gérer le chargement et les erreurs
@@ -50,6 +52,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
         // Mise à jour du nombre d'années uniques de JO
         this.numberOfJo = years.size;
+
+        // On construit l'objet "boxes" qui est envoyé en paramètre du composant heading
+        this.boxes = [
+          { label: 'Number of JOs', content: this.numberOfJo },
+          { label: 'Number of countires', content: this.numberOfCountries }
+        ];
 
         this.pieChartData  = data.map(olympic => {
 

@@ -23,18 +23,6 @@ table{
   }
 }
 
-.boxesContainer{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 90%;
-  margin: auto;
-
-  @media screen and (max-width: 500px) {
-    flex-direction: column;
-  }
-}
-
 .horizontal-legend{
   overflow-x: auto!important;
   scrollbar-width: thin;

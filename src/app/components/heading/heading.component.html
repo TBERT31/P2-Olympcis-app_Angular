@@ -1,0 +1,16 @@
+<div class="">
+    <div class="titleContainer">
+        <h1 class="titlePage">{{title}}</h1>
+    </div>
+
+    <div class="boxesContainer">
+        <div class="boxContainer">
+            <div class="boxContent" *ngFor="let box of boxes">
+                <h2 class="boxText">{{box.label}}</h2>
+                <p class="boxNumber">{{box.content}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+

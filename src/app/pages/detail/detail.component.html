@@ -1,17 +1,12 @@
-<app-title [title]="nameOfCountry" *ngIf="!loading && !error"></app-title>
-
-<div class="boxesContainer" *ngIf="!loading && !error">
-    <app-box [boxText]="'Number of entries'" [boxNumber]="numberOfEntries"></app-box>
-    <app-box [boxText]="'Total number medals'" [boxNumber]="numberOfMedals"></app-box>
-    <app-box [boxText]="'Total number of athletes'" [boxNumber]="numberOfAthletes"></app-box>
-</div>
+<app-header></app-header>
+<app-heading 
+    *ngIf="!loading && !error"
+    [title]="nameOfCountry"
+    [boxes]="boxes">
+</app-heading>
 
 <app-line-chart-medals-per-year *ngIf="!loading && !error"  [results]="lineChartData"></app-line-chart-medals-per-year>
 <app-spinner *ngIf="loading"></app-spinner>
 <app-not-found *ngIf="error"></app-not-found>
 
-<app-table-medals-per-year 
-    *ngIf="lineChartData && lineChartData.length > 0" 
-    [results]="lineChartData[0].series"
->
-</app-table-medals-per-year>
+
