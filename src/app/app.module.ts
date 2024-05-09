@@ -8,7 +8,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { LineChartMedalsPerYearComponent } from './components/line-chart-medals-per-year/line-chart-medals-per-year.component';
 import { PieChartMedalsPerCountryComponent } from './components/pie-chart-medals-per-country/pie-chart-medals-per-country.component';
-import { HeaderComponent } from './components/header/header.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { TableMedalsPerCountryComponent } from './components/table-medals-per-country/table-medals-per-country.component';
@@ -18,7 +18,7 @@ import { HeadingComponent } from './components/heading/heading.component';
 
 @NgModule({
   declarations: [ AppComponent, NotFoundComponent, DetailComponent, SpinnerComponent, HeadingComponent,
-    LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, HeaderComponent, 
+    LineChartMedalsPerYearComponent, PieChartMedalsPerCountryComponent, NavigationComponent, 
     DashboardComponent, TableMedalsPerCountryComponent, TableMedalsPerYearComponent, 
   ],
   imports: [BrowserModule, BrowserAnimationsModule, 

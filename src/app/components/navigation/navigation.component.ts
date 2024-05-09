@@ -3,11 +3,11 @@ import { Subscription } from 'rxjs';
 import { DetailContextService } from 'src/app/core/services/detailContext.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-navigation',
+  templateUrl: './navigation.component.html',
+  styleUrls: ['./navigation.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class NavigationComponent implements OnInit {
 
   public idDetail: number; // Utile pour la navigation vers la page de détail
   private subscription: Subscription; 
