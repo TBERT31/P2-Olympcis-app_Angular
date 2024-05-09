@@ -54,10 +54,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.numberOfJo = years.size;
 
         // On construit l'objet "boxes" qui est envoyé en paramètre du composant heading
-        this.boxes = [
-          { label: 'Number of JOs', content: this.numberOfJo },
-          { label: 'Number of countires', content: this.numberOfCountries }
-        ];
+        this.boxes.length = 0; 
+        this.boxes.push({ label: 'Number of JOs', content: this.numberOfJo }); 
+        this.boxes.push({ label: 'Number of Countries', content: this.numberOfCountries });
 
         this.pieChartData  = data.map(olympic => {
 
