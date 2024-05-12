@@ -3,7 +3,7 @@ import { Observable, of, Subscription } from 'rxjs';
 import { Olympic } from 'src/app/core/models/Olympic.model';
 import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
-import { Box } from 'src/app/core/models/box.model';
+import { Box } from 'src/app/core/models/Box.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -55,8 +55,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
         // On construit l'objet "boxes" qui est envoyé en paramètre du composant heading
         this.boxes.length = 0; 
-        this.boxes.push({ label: 'Number of JOs', content: this.numberOfJo }); 
-        this.boxes.push({ label: 'Number of Countries', content: this.numberOfCountries });
+        this.boxes.push({ label: 'Number of JOs', value: this.numberOfJo }); 
+        this.boxes.push({ label: 'Number of Countries', value: this.numberOfCountries });
 
         this.pieChartData  = data.map(olympic => {
 

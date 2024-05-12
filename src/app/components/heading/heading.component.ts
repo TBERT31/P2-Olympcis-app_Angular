@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Box } from 'src/app/core/models/box.model';
+import { Box } from 'src/app/core/models/Box.model';
 
 
 @Component({
