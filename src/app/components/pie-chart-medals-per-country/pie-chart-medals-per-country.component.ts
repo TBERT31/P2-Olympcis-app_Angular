@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';  // Directives ViewChild et ElementRef sont utiles ici car pour les charts contrairement aux autres éléments il est difficile de gérer le responsive dans le scss.
 import { Router } from '@angular/router';
-import { PieChartDataNgxCharts } from 'src/app/core/models/PieChartDataNgxCharts.model';
+import { PieChartDataNgxCharts, EventType, TooltipItem } from 'src/app/core/models/PieChartDataNgxCharts.model';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { DetailContextService } from 'src/app/core/services/detailContext.service';
 
@@ -79,7 +79,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
   }
 
   // L'affichage par défaut des tooltip ne convient pas, on utilise cette fonction dans l'attribut tooltipText. Qui me permet d'ajouter l'icone font-awesome
-  formatTooltip(item: any): any {
+  formatTooltip(item: TooltipItem): string {
     return `
       <strong>${item.data.name}</strong>
       <br>
@@ -88,7 +88,7 @@ export class PieChartMedalsPerCountryComponent implements OnInit {
   }
 
   // Gère les cliques dans le chart, utile notament pour la navigation 
-  onClick(event: any): void {
+  onClick(event: EventType): void {
     // Cas du clique dans la légende => Donne le nom du pays directement de type string
     if (typeof event === 'string') {
       const idOlympic = this.olympicService.getOlympicIdByCountry(event);
